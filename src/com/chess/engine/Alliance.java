@@ -1,4 +1,6 @@
 package com.chess.engine;
 
-public enum Alliance {
+public enum Alliance{
+    WHITE,
+    BLACK
 }
