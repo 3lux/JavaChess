@@ -9,6 +9,11 @@ public abstract class Move{
     final Piece movedPiece;
     final int destinationCoordinate;
 
+    /***
+     * @param board The Board
+     * @param movedPiece The Piece to be moved
+     * @param destinationCoordinate The Destination
+     */
     private Move(final Board board,
          final Piece movedPiece,
          final int destinationCoordinate){

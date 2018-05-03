@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/***Mechanics
+ * Adds/Subtracts numbers from the current position to find coordinates for legal moves
+ */
 public class Knight extends Piece{
     private final static int[] CANDIDATE_MOVE_COORDINATES = { -17, -15, -10, -6, 6, 10, 15, 17};
     Knight(final int piecePosition, final Alliance pieceAlliance) {

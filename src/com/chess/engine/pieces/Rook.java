@@ -10,7 +10,9 @@ import com.google.common.collect.ImmutableList;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
+/***Mechanics
+ * Slides along horizontals adding legal move tile coordinates to an array
+ */
 public class Rook extends Piece {
 
     Rook(int piecePosition, Alliance pieceAlliance) {

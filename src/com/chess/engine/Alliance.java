@@ -1,6 +1,11 @@
 package com.chess.engine;
 
 public enum Alliance {
+    /***Alliance Methods
+     * getDirection: Black moves down, White moves up
+     * isWhite: returns if the piece is White
+     * isBlack: returns if the piece is Black
+     */
     WHITE {
         @Override
         public int getDirection() {

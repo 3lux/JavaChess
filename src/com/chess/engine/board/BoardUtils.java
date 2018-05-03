@@ -3,7 +3,12 @@ package com.chess.engine.board;
 import javafx.beans.property.ReadOnlyBooleanWrapper;
 
 public class BoardUtils {
-
+    /***
+     * nth_COLUMN: contains all the tiles which are in the nth column
+     * nth_ROW: contains all the tiles which are in the nth row
+     * initColumn: initializes the COLUMN/ROW arrays
+     * isValidTileCoordinate: checks if the Tile is valid
+     */
     public static final boolean[] FIRST_COLUMN = initColumn(0);
     public static final boolean[] SECOND_COLUMN = initColumn(1);
     public static final boolean[] SEVENTH_COLUMN = initColumn(6);

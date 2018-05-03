@@ -6,6 +6,9 @@ import com.google.common.collect.ImmutableMap;
 import java.util.HashMap;
 import java.util.Map;
 
+/***
+ * A Tile on the game board
+ */
 public abstract class Tile {
 
     protected final int tileCoordinate;
