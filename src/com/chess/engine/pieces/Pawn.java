@@ -15,8 +15,8 @@ public class Pawn extends Piece{
 
     private final static int[] CANDIDATE_MOVE_COORDINATE = {8, 16, 7, 9};
 
-    Pawn(final int piecePosition, final Alliance pieceAlliance) {
-        super(piecePosition, pieceAlliance);
+    public Pawn(final int piecePosition, final Alliance pieceAlliance) {
+        super(PieceType.PAWN, piecePosition, pieceAlliance);
     }
 
     @Override
@@ -35,6 +35,7 @@ public class Pawn extends Piece{
             /*** Adds Legal Moves to an array
              * First if clause: Normal non-attacking move
              * Second if clause: "Jumping Moves" on first Move
+             * Third and fourth clause: Fix edge cases
              */
             if(currentCandidateOffset == 8 && !board.getTile(candidateDestinationCoordinate).isTileOccupied()) {
                 //TODO more to add here(deal with promotions)!!!
@@ -74,5 +75,10 @@ public class Pawn extends Piece{
         }
 
         return ImmutableList.copyOf(legalMoves);
+    }
+
+    @Override
+    public String toString() {
+        return PieceType.PAWN.toString();
     }
 }

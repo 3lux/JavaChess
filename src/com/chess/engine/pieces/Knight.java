@@ -18,8 +18,8 @@ import java.util.List;
  */
 public class Knight extends Piece{
     private final static int[] CANDIDATE_MOVE_COORDINATES = { -17, -15, -10, -6, 6, 10, 15, 17};
-    Knight(final int piecePosition, final Alliance pieceAlliance) {
-        super(piecePosition, pieceAlliance);
+    public Knight(final int piecePosition, final Alliance pieceAlliance) {
+        super(PieceType.KNIGHT, piecePosition, pieceAlliance);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class Knight extends Piece{
                     continue;
                 }
                 final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
-                if(candidateDestinationTile.isTileOccupied()){
+                if(!candidateDestinationTile.isTileOccupied()){
                     legalMoves.add(new MajorMove(board, this, candidateDestinationCoordinate));
                 }else{
                     final Piece pieceAtDestination = candidateDestinationTile.getPiece();
@@ -48,6 +48,11 @@ public class Knight extends Piece{
             }
         }
         return ImmutableList.copyOf(legalMoves);
+    }
+
+    @Override
+    public String toString() {
+        return PieceType.KNIGHT.toString();
     }
 
     private static boolean isFirstColumnExclusion(final int currentPosition, final int candidateOffset){

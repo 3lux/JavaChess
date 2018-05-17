@@ -15,8 +15,8 @@ import java.util.List;
  */
 public class Rook extends Piece {
 
-    Rook(int piecePosition, Alliance pieceAlliance) {
-        super(piecePosition, pieceAlliance);
+    public Rook(int piecePosition, Alliance pieceAlliance) {
+        super(PieceType.ROOK, piecePosition, pieceAlliance);
     }
 
 
@@ -26,7 +26,6 @@ public class Rook extends Piece {
     public Collection<Move> calculateLegalMoves(Board board) {
 
         final List<Move> legalMoves = new ArrayList<>();
-
         for(final int candidateCoordinateOffset : CANDIDATE_MOVE_VECTOR_COORDINATES) {
             int candidateDestinationCoordinate = this.piecePosition;
             while(BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)) {
@@ -37,7 +36,7 @@ public class Rook extends Piece {
                 candidateDestinationCoordinate += candidateCoordinateOffset;
                 if(BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)) {
                     final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
-                    if(candidateDestinationTile.isTileOccupied()) {
+                    if(!candidateDestinationTile.isTileOccupied()) {
                         legalMoves.add(new Move.MajorMove(board, this, candidateDestinationCoordinate));
                     }else {
                         final Piece pieceAtDestination = candidateDestinationTile.getPiece();
@@ -57,6 +56,11 @@ public class Rook extends Piece {
 
 
         return ImmutableList.copyOf(legalMoves);
+    }
+
+    @Override
+    public String toString() {
+        return PieceType.ROOK.toString();
     }
 
     private static boolean isFirstColumnExclusion(final int currentPosition, final int candidateOffset) {
